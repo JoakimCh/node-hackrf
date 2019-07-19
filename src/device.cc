@@ -89,7 +89,8 @@ Local<Object> Device::NewInstance(hackrf_device* hd) {
   Nan::EscapableHandleScope scope;
 
   Local<Function> cons = Nan::New<Function>(constructor);
-  Local<Object> instance = cons->NewInstance(0, 0);
+  // Local<Object> instance = cons->NewInstance(0, 0);
+  Local<Object> instance = Nan::NewInstance(cons, 0, 0).ToLocalChecked();
 
   Device* d = ObjectWrap::Unwrap<Device>(instance);
   d->device = hd;

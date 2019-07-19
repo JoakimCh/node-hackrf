@@ -42,7 +42,7 @@ void Devices(const FunctionCallbackInfo<Value>& info) {
   info.GetReturnValue().Set(devices);
 }
 
-void InitAll(Handle<Object> exports) {
+void InitAll(Local<Object> exports) {
   hackrf_init();
   Device::Init();
 
