@@ -76,7 +76,7 @@ void Device::Init() {
   Nan::SetPrototypeMethod(tpl, "endRx", EndRx);
   Nan::SetPrototypeMethod(tpl, "close", Close);
 
-  constructor.Reset(Nan::GetFunction(tpl));
+  constructor.Reset(Nan::GetFunction(tpl).ToLocalChecked());
 }
 
 void Device::New(const Nan::FunctionCallbackInfo<Value>& info) {
