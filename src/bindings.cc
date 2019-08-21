@@ -6,7 +6,7 @@
 using namespace v8;
 
 void OpenDevice(const Nan::FunctionCallbackInfo<v8::Value>& info) {
-  int index = info[0]->Uint32Value();
+  int index = info[0]->Int32Value(Nan::GetCurrentContext()).FromJust();
 
   hackrf_device_list_t* list = hackrf_device_list();
   if (index >= list->devicecount) return Nan::ThrowError("Invalid device index");
